@@ -23,9 +23,13 @@ const Index = () => {
 }
 
 const BigList = ({ products }) => {
+  useEffect(() => {
+    console.log('big list called')
+  }, [])
+
   return (
     <section className='products'>
-      {products.map((product) => {
+      {products.map(product => {
         return <SingleProduct key={product.id} {...product}></SingleProduct>
       })}
     </section>
@@ -33,6 +37,10 @@ const BigList = ({ products }) => {
 }
 
 const SingleProduct = ({ fields }) => {
+  useEffect(() => {
+    console.count('single item called')
+  }, [])
+
   let { name, price } = fields
   price = price / 100
   const image = fields.image[0].url
